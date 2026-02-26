@@ -1,0 +1,18 @@
+*** Begin Patch
+*** Update File: c:/Users/Kesavan.munusamy/Music/Cognitive_Tech_Task/01_Project/code/llm.py
+@@
+     return "\n".join(lines)
++
++def ats_score(jd_text: str, resume_text: str) -> dict:
++    """Compute a simple keyword match percentage between JD and resume text.
++
++    Returns a dictionary with keys `score`, `matched`, and `total`.
++    """
++    jd_words = set(re.findall(r"\w+", jd_text.lower()))
++    resume_words = set(re.findall(r"\w+", resume_text.lower()))
++    if not jd_words:
++        return {"score": 0.0, "matched": [], "total": 0}
++    matched = list(jd_words & resume_words)
++    score = len(matched) / len(jd_words) * 100.0
++    return {"score": round(score, 2), "matched": matched, "total": len(jd_words)}
+*** End Patch

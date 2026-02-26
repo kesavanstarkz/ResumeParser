@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Resume Parser UI</title>
+        <link rel="stylesheet" href="/ui/styles.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h1>Resume Parser</h1>
+            <form id="uploadForm">
+                <label for="jd"
+                    >Job Description (paste here for GPT scoring)</label
+                >
+                <textarea
+                    id="jd"
+                    name="jd"
+                    rows="4"
+                    style="width: 100%"
+                ></textarea>
+                <button id="scoreBtn" type="button">Compute GPT Score</button>
+                <hr />
+                <label for="files"
+                    >Select one or more resumes (PDF / JPG / PNG)</label
+                >
+                <input id="files" name="files" type="file" multiple />
+                <button id="submitBtn" type="submit">Upload & Parse</button>
+            </form>
+
+            <div id="status"></div>
+            <div id="results"></div>
+        </div>
+        <script src="/ui/app.js"></script>
+    </body>
+</html>
